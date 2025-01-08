@@ -45,9 +45,9 @@ if (remainingAttempts > 0) {
 
 guessedLetter('m')
 guessedLetter('i')
-guessedLetter('m')
 guessedLetter('l')
 guessedLetter('k')
+
 
 
 
