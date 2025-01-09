@@ -65,10 +65,7 @@ button:hover {
     margin: 10px 0;
 }
 
-.guesses {
-    font-size: 1rem;
-    margin-top: 10px;
-}
+
 
 footer {
     margin-top: 30px;
@@ -77,6 +74,6 @@ footer {
 }
 
 
-.word, .message, .wrong-guesses, .guesses {
+.word, .message, .guesses {
     padding: 10px;
 }

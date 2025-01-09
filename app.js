@@ -5,7 +5,7 @@ const wrongGuessesElement = document.querySelector('.wrong-guesses');
 const guessInput = document.getElementById('guess-input');
 const guessButton = document.getElementById('guess-button');
 
-// Game setup
+
 const words = ['milk', 'jump', 'card', 'rock']; 
 const selectedWord = words[Math.floor(Math.random() * words.length)]; 
 const guessedLetters = [];
@@ -82,7 +82,6 @@ function checkGameStatus() {
 function initGame() {
   updateWordDisplay();
   updateWrongGuesses();
-  guessesElement.textContent = `Attempts Left: ${remainingAttempts}`;
 }
 
 
