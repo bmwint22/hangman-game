@@ -1,0 +1,82 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #ffe6f2; 
+    color: #5a0048; 
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #ff007f; 
+}
+
+.word {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    color: #5a0048; 
+}
+
+.message {
+    color: #ff005e; 
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    font-size: 1rem;
+    padding: 8px;
+    width: 200px;
+    margin-right: 10px;
+    border: 2px solid #ff007f;
+    border-radius: 8px;
+    background-color: #ffccde; 
+    color: #5a0048;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #ff0080;
+    background-color: #ffe6f2; 
+}
+
+button {
+    font-size: 1rem;
+    padding: 8px 15px;
+    background-color: #ff0080;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cc0066; 
+}
+
+.wrong-guesses {
+    font-size: 1.2rem;
+    color: #ff3366; 
+    margin: 10px 0;
+}
+
+.guesses {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #b3005e; 
+}
+
+
+.word, .message, .wrong-guesses, .guesses {
+    padding: 10px;
+}

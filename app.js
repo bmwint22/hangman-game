@@ -1,55 +1,92 @@
-// Come up with a list of words to guess by creating a constant for each word in an array
-// Const for randomly selected word
-//Display word with underscores
-//Create an array to track guessed letters
-//Create a constant for remaining attempts
-//Select a random word
-//Create display with underscores
-//Reset guessed letters and attempts
-//Show initial game state
-//check if letter was already guessed
-//Add the letter to guessed letters
-//Check if the letter is in the word
-//Reveal the letters in display
-//Decrease remaining attempts
-//Check if there’s a win or loss
-//Game Ends or Continues
-//If game is over exit the game loop
-//Ask if the player wants to play again
-//Restart the gameAs a user, I want to guess the letters of a secret word within a set number of attempts while receiving feedback on my progress from the computer.
+const wordElement = document.querySelector('.word');
+const guessesElement = document.querySelector('.guesses');
+const messageElement = document.querySelector('.message');
+const wrongGuessesElement = document.querySelector('.wrong-guesses');
+const guessInput = document.getElementById('guess-input');
+const guessButton = document.getElementById('guess-button');
 
-const words = ('milk', 'jump', 'card', 'rock');
-//const [milk, jump, card, rock] = words
-//console.log('milk')
-
-const guessedLetters =[]
+// Game setup
+const words = ['milk', 'jump', 'card', 'rock']; 
+const selectedWord = words[Math.floor(Math.random() * words.length)]; 
+const guessedLetters = [];
 const maxAttempts = 4;
 let remainingAttempts = maxAttempts;
+let revealedWord = '_'.repeat(selectedWord.length).split('');
+let wrongGuesses = [];
 
-function guessedLetter(letter) {
-    if (!guessedLetters.includes(letter)) {
-        guessedLetters.push(letter);
-        console.log(`You guessed: ${letter}`);
-        }
-        else {
-            console.log(`You already guessed: ${letter}`)
-    }
+
+function updateWordDisplay() {
+  wordElement.textContent = revealedWord.join(' ');
 }
 
-if (remainingAttempts > 0) {
-    remainingAttempts--;
-  } else {
-    console.log("No attempts remaining!");
+
+function updateWrongGuesses() {
+  wrongGuessesElement.textContent = `Wrong Guesses: ${wrongGuesses.join(', ')}`;
+}
+
+
+function setMessage(message) {
+  messageElement.textContent = message;
+}
+
+
+function handleGuess() {
+  const guess = guessInput.value.toLowerCase();
+  guessInput.value = ''; 
+  setMessage(''); 
+
+  if (!guess || guess.length !== 1 || !/[a-z]/.test(guess)) {
+    setMessage('Please enter a valid single letter!');
+    return;
   }
-  
 
-guessedLetter('m')
-guessedLetter('i')
-guessedLetter('l')
-guessedLetter('k')
+  if (guessedLetters.includes(guess) || wrongGuesses.includes(guess)) {
+    setMessage('You already guessed that letter!');
+    return;
+  }
+
+  guessedLetters.push(guess);
+
+  if (selectedWord.includes(guess)) {
+    selectedWord.split('').forEach((letter, index) => {
+      if (letter === guess) {
+        revealedWord[index] = guess;
+      }
+    });
+    setMessage('Good guess!');
+  } else {
+    wrongGuesses.push(guess);
+    remainingAttempts--;
+    setMessage(`Incorrect guess! ${remainingAttempts} attempts left.`);
+  }
+
+  updateWordDisplay();
+  updateWrongGuesses();
+  checkGameStatus();
+}
 
 
+function checkGameStatus() {
+  if (revealedWord.join('') === selectedWord) {
+    setMessage('Congratulations! You guessed the word!');
+    guessButton.disabled = true;
+    guessInput.disabled = true;
+  } else if (remainingAttempts <= 0) {
+    setMessage(`Game Over! The word was "${selectedWord}".`);
+    guessButton.disabled = true;
+    guessInput.disabled = true;
+  }
+}
 
 
-console.log('Guessed Letters:', guessedLetters);
-console.log('Remaining Attempts:', remainingAttempts);
+function initGame() {
+  updateWordDisplay();
+  updateWrongGuesses();
+  guessesElement.textContent = `Attempts Left: ${remainingAttempts}`;
+}
+
+
+guessButton.addEventListener('click', handleGuess);
+
+
+initGame();

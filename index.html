@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .word {
+      font-size: 2rem;
+      letter-spacing: 0.5rem;
+    }
+    .message {
+      color: red;
+      margin: 10px 0;
+    }
+  </style>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="./app.js"></script>
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 </head>
 <body>
-    
+  <h1>Hangman Game</h1>
+  <div class="word"></div>
+  <div class="message"></div>
+  <div>Wrong Guesses: <span class="wrong-guesses"></span></div>
+  <div class="guesses"></div>
+  <input type="text" id="guess-input" maxlength="1" placeholder=>
+  <button id="guess-button">Guess</button>
+  <script src="app.js"></script>
 </body>
 </html>
