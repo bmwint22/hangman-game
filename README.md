@@ -1,7 +1,7 @@
 # Hangman Game
 
 This is a simple Hangman game implemented in JavaScript. The game can be played directly in your browser.
-![Alt Text](assets/screenshot.png)
+![Hangman Game](https://github.com/bmwint22/hangman-game/raw/main/Hangman%20Game.png)
 
 ## Features
 
@@ -19,11 +19,25 @@ This is a simple Hangman game implemented in JavaScript. The game can be played 
 
 ## Technology Used
 
-- **HTML**: Provides the structure of the game.
-- **CSS**: Styles for a responsive user interface.
-- **JavaScript**: Handles game logic and user interactions.
+- **HTML**
+- **CSS**
+- **JavaScript**
 
-## How to Run
+## Game Link
 
 1. Link
+
    https://github.com/bmwint22/hangman-game.git
+
+## Resources Used
+
+- ChatGPT
+- General Assembly Resources
+- Google
+
+
+
+
+
+
+
