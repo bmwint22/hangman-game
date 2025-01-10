@@ -1,0 +1,82 @@
+HANGMAN GAME
+
+
+
+User Story for Hangman Game
+- [ ] As a user, I want to test my vocabulary, problem-solving skills, and have fun overcoming the challenge.
+- [ ] As a user, I want to see the word displayed as underscores, representing hidden letters.
+- [ ] As a user, I want to be able to input one letter at a time by clicking each underscore and typing in a letter.
+- [ ] As a user, I want my correct guesses to reveal the letter in the word in each underscore.
+- [ ] As a user, I want incorrect guesses to decrease my  remaining attempts and update the hangman figure.
+- [ ] As a user, I want to prevent duplicate guesses and be notified if the same letter is guessed again.
+- [ ] As a user, I want to see a list of guessed letters for reference.
+- [ ] As a user I want visual indication that I won if all letters are guessed correctly 
+- [ ] As a user, I want to see a display of the correct word after the game.
+- [ ] As a user, I want to be offered the option to play a 2nd round.
+
+
+
+Pseudocode:
+
+// Come up with a list of words to guess by creating a constant for each word in an array
+// Const for randomly selected word
+//Display word with underscores
+//Create an array to track guessed letters
+//Create a constant for remaining attempts
+//Select a random word
+//Create display with underscores
+//Reset guessed letters and attempts
+//Show initial game state
+//check if letter was already guessed
+//Add the letter to guessed letters
+//Check if the letter is in the word
+//Reveal the letters in display
+//Decrease remaining attempts
+//Check if there’s a win or loss
+//Game Ends or Continues
+//If game is over exit the game loop
+//Ask if the player wants to play again
+//Restart the gameAs a user, I want to guess the letters of a secret word within a set number of attempts while receiving feedback on my progress from the computer.
+
+
+Section 4: Additional Requirements
+* Provide clear instructions before starting the game.
+* Use a simple, text-based interface for user interaction.
+
+
+1. 
+Step 1: Understand the Game Mechanics
+1. A word is chosen (either randomly or by the user/computer).
+2. The player guesses letters to uncover the word.
+3. The player has a limited number of incorrect guesses before losing.
+
+Step 2: Break Down the Features
+1. Word Selection
+* Predefine a list of words and randomly pick one.
+2. Display Progress
+* Show the word as underscores and update it with correctly guessed letters.
+3. Track Player Input
+* Record guessed letters and prevent duplicate guesses.
+4. Win/Lose Conditions
+* Win if all letters are guessed.
+* Lose if incorrect guesses exceed the limit.
+5. Visual Feedback
+* Show a hangman figure for incorrect guesses.
+
+Step 3: Plan the Code Structure
+Variables
+* word, guessedLetters, remainingAttempts, display.
+Functions
+* initializeGame(), updateDisplay(), checkGuess(letter), checkWinOrLose().
+Game Loop
+* Prompt for input, validate, and process it.
+
+Step 4: User Interaction
+1. Use prompt to get input and alert for feedback.
+2. Provide clear instructions to the player.
+
+Step 5: Incremental Development
+1. Hardcode a word to start.
+2. Build word display and input checking.
+3. Add win/lose logic.
+4. Randomize word selection and refine the game.
