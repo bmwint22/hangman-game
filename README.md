@@ -1,7 +1,7 @@
 # Hangman Game
+![Hangman Game]( https://github.com/bmwint22/hangman-game/blob/main/Hangman%20Game%20.png?raw=true)
 
 This is a simple Hangman game implemented in JavaScript. The game can be played directly in your browser.
-![Hangman Game](https://github.com/bmwint22/hangman-game/raw/main/Hangman%20Game.png)
 
 ## Features
 
