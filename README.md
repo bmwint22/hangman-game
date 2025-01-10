@@ -27,7 +27,8 @@ This is a simple Hangman game implemented in JavaScript. The game can be played 
 
 1. Link
 
-   https://github.com/bmwint22/hangman-game.git
+  [ https://github.com/bmwint22/hangman-game.git](https://github.com/bmwint22/hangman-game.git)
+
 
 ## Resources Used
 
