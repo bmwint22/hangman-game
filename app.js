@@ -1,63 +1,49 @@
-const wordElement = document.querySelector('.word');
-const guessesElement = document.querySelector('.guesses');
-const messageElement = document.querySelector('.message');
-const wrongGuessesElement = document.querySelector('.wrong-guesses');
-const guessInput = document.getElementById('guess-input');
 const guessButton = document.getElementById('guess-button');
+const initGameButton = document.getElementById('init-game-button');
 
-
-const words = ['milk', 'jump', 'card', 'rock']; 
-const selectedWord = words[Math.floor(Math.random() * words.length)]; 
-const guessedLetters = [];
-const maxAttempts = 4;
-let remainingAttempts = maxAttempts;
+const words = ['milk', 'jump', 'card', 'rock'];
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 let revealedWord = '_'.repeat(selectedWord.length).split('');
 let wrongGuesses = [];
+let remainingAttempts = 4;
 
 
 function updateWordDisplay() {
-  wordElement.textContent = revealedWord.join(' ');
+  document.querySelector('.word').textContent = revealedWord.join(' ');
 }
-
 
 function updateWrongGuesses() {
-  wrongGuessesElement.textContent = `Wrong Guesses: ${wrongGuesses.join(', ')}`;
+  document.querySelector('.wrong-guesses').textContent = `Wrong Guesses: ${wrongGuesses.join(', ')}`;
 }
 
-
 function setMessage(message) {
-  messageElement.textContent = message;
+  document.querySelector('.message').textContent = message;
 }
 
 
 function handleGuess() {
-  const guess = guessInput.value.toLowerCase();
-  guessInput.value = ''; 
-  setMessage(''); 
+  const guess = document.getElementById('guess-input').value.toLowerCase();
+  document.getElementById('guess-input').value = ''; 
 
   if (!guess || guess.length !== 1 || !/[a-z]/.test(guess)) {
-    setMessage('Please enter a valid single letter!');
+    setMessage('Please enter a valid letter!');
     return;
   }
 
-  if (guessedLetters.includes(guess) || wrongGuesses.includes(guess)) {
-    setMessage('You already guessed that letter!');
+  if (revealedWord.includes(guess) || wrongGuesses.includes(guess)) {
+    setMessage('You already guessed that!');
     return;
   }
-
-  guessedLetters.push(guess);
 
   if (selectedWord.includes(guess)) {
     selectedWord.split('').forEach((letter, index) => {
-      if (letter === guess) {
-        revealedWord[index] = guess;
-      }
+      if (letter === guess) revealedWord[index] = guess;
     });
     setMessage('Good guess!');
   } else {
     wrongGuesses.push(guess);
     remainingAttempts--;
-    setMessage(`Incorrect guess! ${remainingAttempts} attempts left.`);
+    setMessage(`Incorrect! ${remainingAttempts} tries left.`);
   }
 
   updateWordDisplay();
@@ -68,24 +54,32 @@ function handleGuess() {
 
 function checkGameStatus() {
   if (revealedWord.join('') === selectedWord) {
-    setMessage('Congratulations! You guessed the word!');
+    setMessage('You guessed it!');
     guessButton.disabled = true;
-    guessInput.disabled = true;
   } else if (remainingAttempts <= 0) {
     setMessage(`Game Over! The word was "${selectedWord}".`);
     guessButton.disabled = true;
-    guessInput.disabled = true;
   }
 }
 
 
 function initGame() {
+  revealedWord = '_'.repeat(selectedWord.length).split('');
+  wrongGuesses = [];
+  remainingAttempts = 4;
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+  
   updateWordDisplay();
   updateWrongGuesses();
+  setMessage('');
+  
+  guessButton.disabled = false;
 }
 
 
 guessButton.addEventListener('click', handleGuess);
+initGameButton.addEventListener('click', initGame);
 
 
 initGame();
+ 
